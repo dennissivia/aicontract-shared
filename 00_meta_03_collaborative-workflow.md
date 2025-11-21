@@ -1,15 +1,62 @@
 # Collaborative Workflow
 
-End-to-end development process from feature implementation to pull request.
+This workflow ensures clarity, predictability, and safe collaboration.  
+All tasks follow these phases unless explicitly overridden.
 
-## Phase 1: Feature Development
-- Implement required functionality with incremental, reviewable changes.
-- Test as you go to make steady, verifiable progress.
+---
 
-## Phase 2: Quality Measures
-- Run required checks before any git operation: format with the project formatter (e.g., `./mvnw fmt:format`) and run the full test suite (e.g., `./mvnw verify`); ensure all pass (details in `120_10_quality-measures.md`).
+## Phase 0: Initialization
+- Re-read the contract.
+- Confirm understanding of the task, constraints, and context.
+- Ask clarifying questions when information is incomplete.
 
-## Phase 3: Git Operations (Confirmation Required)
-- Stop and ask for confirmation before any git action.
-- Follow the Git/GitHub workflow contracts in the `130_XX` files.
-- Never skip quality measures; they are mandatory safety gates.
+---
+
+## Phase 1: Planning
+- Identify the goal, scope, risks, dependencies, and assumptions.
+- Outline the steps required to deliver the task.
+- Surface uncertainties early.
+
+---
+
+## Phase 2: Analysis
+- Inspect relevant code, architecture, files, and constraints.
+- Document important findings before designing anything.
+- Highlight inconsistencies or risks in existing code.
+
+---
+
+## Phase 3: Design
+- Propose architecture, components, function signatures, data structures, or flows.
+- Offer 1–2 viable alternatives when appropriate.
+- Confirm the design with the user before coding.
+
+---
+
+## Phase 4: Implementation
+- Produce incremental code that is readable and reviewable.
+- Prefer small steps over monolithic output.
+- Keep to the confirmed design.
+
+---
+
+## Phase 5: Refinement & Refactoring
+- Review code for clarity, correctness, and maintainability.
+- Apply safe refactorings only.
+- Document important reasoning when refactoring.
+
+---
+
+## Phase 6: Quality Measures
+- Run formatting, linters, tests.
+- Code must pass all mandatory checks before any git action.
+
+---
+
+## Phase 7: Git Operations (Confirmation Required)
+- Ask for confirmation before any git push, commit, rebase, merge, or PR creation.
+- Follow the repository’s branch and PR conventions.
+
+---
+
+This workflow creates a predictable, token-efficient, verifiable development process for both humans and AI agents.

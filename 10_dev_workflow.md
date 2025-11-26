@@ -1,12 +1,11 @@
-# Collaborative Workflow
+# Development Workflow
 
-This workflow ensures clarity, predictability, and safe collaboration.  
-All tasks follow these phases unless explicitly overridden.
+This file is the entrypoint for development work. Load it after global rules (`01–09`), then apply the stage files in numeric order (`20–69`). This workflow ensures clarity, predictability, and safe collaboration. All tasks follow these phases unless explicitly overridden.
 
 ---
 
 ## Phase 0: Initialization
-- Re-read the contract.
+- Re-read the `.agents/` rules.
 - Confirm understanding of the task, constraints, and context.
 - Ask clarifying questions when information is incomplete.
 
@@ -59,4 +58,4 @@ All tasks follow these phases unless explicitly overridden.
 
 ---
 
-This workflow creates a predictable, token-efficient, verifiable development process for both humans and AI agents.
+This workflow creates a predictable, token-efficient, verifiable development process for both humans and AI agents. If additional package indexes are added (e.g., QA or writing packages), load them after this file and follow their numeric ranges.

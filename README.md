@@ -1,118 +1,58 @@
-# 📘 AI Development Contract – Shared Rules
+# Shared `.agents/` (software development workflow)
 
-This folder contains the **shared AI Development Contract**: a small set of reusable rules and guidelines that help teams and AI agents work consistently across projects.
+This repository is the **shared `.agents/` subfolder for software development workflows**. Drop these files into your repo’s `.agents/` (or `.agents/shared/`) folder. The structure follows `docs/AGENTS_CODING_SPEC.md`.
 
-These rules define **organization-wide defaults** for software development.  
-They are meant to be:
+## What Lives Here
+- Global rules (communication, scope, safety, context) and a development workflow package for coding-focused repos.
+- Numeric prefixes set read order: `00_index.md` dispatches; `01–09` are global; `10–69` are workflow stages.
+- `00_index.md` explains precedence and how host repos can add `shared/`, `vendor/`, or `local/` layers.
 
-- **Human-readable**  
-- **AI-friendly**  
-- **Lightweight and non-prescriptive**  
-- **Overridable at the project level**
+## Global Files (`01–09`)
+- `01_global_01_purpose-and-scope.md` — defines the `.agents/` mission and scope.
+- `01_global_02_foundational-rules.md` — absolute rules and the required workflow sequence.
+- `01_global_03_communication-guidelines.md` — tone, clarity, pause/feedback expectations.
+- `01_global_04_ai-context-maintenance.md` — how to keep instructions current and prioritized.
 
-Projects may extend or override these rules in their own `local/` contract folder. Tool or platform packs contribute rules in `vendor/`.
+## Workflow Entry and Stages
+- `10_dev_workflow.md` — entrypoint for development tasks; follow phases in order.
+- `20–26` series — stage-specific rules: analysis, implementation, refactor, validation/QA, git, PRs.
 
----
-
-## 🗂️ Structure Overview
-
-Every contract uses the same top-level layout:
-
+## Target Layout (when installed)
 ```
-aidev-contract/
-  shared/   → reusable rules (this folder)
-  vendor/   → pack- or platform-specific rules
-  local/    → project-specific rules (highest precedence)
-```
-
-All files in these folders follow the same naming pattern.  
-There are **no nested folders**. Structure comes from filenames.
-
----
-
-## 🔢 File Naming Pattern
-
-Each rule file uses:
-
-```
-AA_group_II_slug.md
-```
-
-- `AA` → 2-digit namespace (numeric range)  
-- `group` → short stage name (e.g., `analysis`, `implementation`, `qa`, `git`, `pr`)  
-- `II` → index inside the group (`01–99`)  
-- `slug` → short description in kebab-case
-
-Example:
-
-```
-21_implementation_02_error-handling.md
+.agents/
+  00_index.md
+  01_global_01_purpose-and-scope.md
+  01_global_02_foundational-rules.md
+  01_global_03_communication-guidelines.md
+  01_global_04_ai-context-maintenance.md
+  10_dev_workflow.md
+  20_analysis_01_technical-decisions.md
+  21_implementation_01_security.md
+  21_implementation_02_configuration-and-properties.md
+  21_implementation_03_dependency-management.md
+  21_implementation_04_observability-and-monitoring.md
+  21_implementation_05_bare_python_project_setup.md
+  22_refactor_01_code-quality.md
+  23_validate_01_quality-gates.md
+  24_qa_01_testing-standards.md
+  24_qa_02_testing-standards_spring-boot.md
+  25_git_01_git-workflow.md
+  25_git_02_commit-messages.md
+  26_pr_01_pull-requests.md
+docs/
+  AGENTS_CODING_SPEC.md  (reference standard)
 ```
 
----
+## Numbering Guide
+- `00`: dispatcher only (must be loaded first)
+- `01–09`: global rules (communication, safety, boundaries, context)
+- `10–19`: package indexes (development index present here)
+- `20–69`: workflow rules (analysis, implementation, validation, git, PR)
+- `70–79`: experimental / WIP
+- `80–99`: reserved
 
-## 🔢 Numeric Ranges (simplified)
-
-These ranges keep the contract predictable but flexible:
-
-| Range | Meaning                                 |
-|-------|------------------------------------------|
-| 00–09 | Meta & key rules                         |
-| 10–19 | Reserved                                 |
-| 20–39 | Recommended stages (analysis, impl, …)   |
-| 40–69 | Additional org-defined groups            |
-| 70–79 | Experimental / WIP                       |
-| 80–99 | Reserved                                 |
-
-You can freely mix shared, vendor, and local rules using the same pattern.
-
----
-
-## 🧩 Common Groups (Stages)
-
-These are the typical groups used across shared/vendor/local:
-
-- `analysis` – thinking before coding: structure, context, spec prep  
-- `implementation` – coding conventions, patterns, API & error handling  
-- `refactor` – improving existing code safely  
-- `validate` – linting, formatting, static checks  
-- `qa` – testing strategy and guidance  
-- `git` – commit messages, branching, hooks  
-- `pr` – pull request conventions and review rules  
-- `meta` – overview and how to use the contract
-
-Examples:
-
-```
-20_analysis_01_context-crafting.md
-21_implementation_01_style-guide.md
-24_qa_01_testing-strategy.md
-26_pr_01_review-checklist.md
-```
-
----
-
-## 🤖 How Agents Use This
-
-Subagents or coding agents can be configured to “own” certain numeric namespaces or groups (e.g., `21_implementation_*`, `24_qa_*`).  
-They load the applicable files from:
-
-1. `shared/` (base rules)  
-2. `vendor/` (pack-specific refinements)  
-3. `local/` (project-specific overrides)
-
-This predictable structure makes agent behavior consistent across tools.
-
----
-
-## ✔️ Summary
-
-- Three scopes: **shared**, **vendor**, **local**  
-- Flat file structure (no subfolders)  
-- Naming convention: `AA_group_II_slug.md`  
-- Numeric ranges give light structure  
-- Group names communicate intent to humans and agents  
-- Local rules override shared & vendor rules
-
-This README is the minimal orientation needed to understand the shared contract.  
-More detailed documentation can be added later (e.g., in a `/docs` folder or a separate repo).
+## Precedence and Layering
+- Read files in lexical order by prefix; `00_index.md` defines the load order, then globals (`01–09`), then workflow packages.
+- In host repos with multiple scopes (e.g., `shared/`, `vendor/`, `local/`), the closest `.agents/` folder to the code wins; use `00_index.md` to declare load order.
+- Keep `.agents/` tracked in git and avoid renaming/renumbering unless the structure changes; prefer adding new topic files.
+- Do not use custom names like `.aicontract`; `.agents/` is the canonical location for AI guidance.

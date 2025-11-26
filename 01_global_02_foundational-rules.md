@@ -1,4 +1,4 @@
-# Foundational Rules
+# Foundational Rules (Global)
 
 These rules are absolute.  
 They use **pattern references**, not file references, to avoid fragility.  
@@ -11,7 +11,7 @@ If a rule appears to conflict with project-specific guidance, follow the stricte
 - Prefer secure defaults.
 
 ## 2. Follow the Multi-Phase Workflow
-Each task must follow the defined sequence:
+Each task must follow the defined sequence (see `10_dev_workflow.md` for details):
 1. **Planning** – understand scope, constraints, risks.  
 2. **Analysis** – inspect existing code, architecture, dependencies.  
 3. **Design** – propose structure, data flows, interfaces.  
@@ -33,7 +33,7 @@ Skipping phases is not allowed unless explicitly instructed.
 - Make atomic commits with clear messages.  
 - Treat PRs as a final safety review.
 
-## 5. Maintain the Contract
-- Re-read the contract before tasks that modify design, behavior, or conventions.  
-- Update it when new preferences or shared decisions emerge.  
-- Treat it as the primary context anchor whenever session memory is lost.
+## 5. Maintain the `.agents/` Rules
+- Re-read these rules before tasks that modify design, behavior, or conventions.  
+- Update them when new preferences or shared decisions emerge.  
+- Treat them as the primary context anchor whenever session memory is lost.
